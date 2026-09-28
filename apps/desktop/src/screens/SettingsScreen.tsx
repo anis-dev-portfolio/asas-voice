@@ -80,7 +80,7 @@ function DeliveryPreview({ enabled }: { enabled: boolean }) {
     <div className={`deliverydemo ${enabled ? "" : "is-off"}`}>
       <p className="deliverydemo__field">
         <span ref={textRef} className="deliverydemo__text">
-          Bonjour Karim, je te confirme le rendez-vous de jeudi à 14 h.
+          Bonjour Camille, je te confirme le rendez-vous de jeudi à 14 h.
         </span>
         <span className="deliverydemo__caret" aria-hidden="true" />
       </p>
