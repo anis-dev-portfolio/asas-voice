@@ -1,0 +1,70 @@
+[package]
+name = "asas-voice"
+version = "0.1.0"
+description = "Asas Voice — dictée vocale"
+authors = ["you"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# Le suffixe `_lib` évite un conflit de nom entre la lib et le binaire sous Windows.
+# https://github.com/rust-lang/cargo/issues/8519
+name = "asas_voice_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon", "image-png"] }
+tauri-plugin-opener = "2"
+tauri-plugin-global-shortcut = "2"
+# Paste-at-cursor (T5) : presse-papier + simulation clavier.
+arboard = "3"
+enigo = "0.3"
+# Historique local (T6) : SQLite.
+tauri-plugin-sql = { version = "2", features = ["sqlite"] }
+# Réglages (T7) : démarrage au boot.
+tauri-plugin-autostart = "2"
+# Single-instance : un seul process Asas Voice (réveille la fenêtre au 2e lancement).
+tauri-plugin-single-instance = "2"
+# Backend embarqué (Jalon A) : lance/arrête le sidecar Fastify (externalBin).
+tauri-plugin-shell = "2"
+# Export historique (F2.4) : dialogue natif « Enregistrer sous ».
+tauri-plugin-dialog = "2"
+# Stockage sécurisé de la clé API : Windows Credential Manager (jamais en clair sur disque).
+keyring = { version = "3", features = ["windows-native", "apple-native", "sync-secret-service"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Restauration du focus de la fenêtre cible pour le paste-at-cursor (Windows)
+# + Job Object « kill on close » pour que le sidecar meure avec l'app (même sur crash).
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = [
+    "Win32_Foundation",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_System_Threading",
+    "Win32_System_JobObjects",
+    "Win32_Security",
+    # Effet « livraison » : fenêtre superposée native (GDI + DWM), DPI des apps cibles.
+    "Win32_Graphics_Gdi",
+    "Win32_Graphics_Dwm",
+    "Win32_System_LibraryLoader",
+    "Win32_UI_HiDpi",
+] }
+# Effet « livraison » : où est le texte collé ? (UI Automation, MSAA). Même version que
+# celle déjà tirée par WebView2 : aucune compilation en double.
+windows = { version = "0.61", features = [
+    "Win32_Foundation",
+    "Win32_System_Com",
+    "Win32_System_Ole",
+    "Win32_System_Variant",
+    "Win32_UI_Accessibility",
+] }
+# Rendu logiciel anti-crénelé de la comète et du surlignage (pur Rust, sans GPU ni webview).
+tiny-skia = { version = "0.11", default-features = false, features = ["std", "simd"] }
+
+# Tests visuels de l'effet « livraison » : export PNG des images (jamais dans le binaire).
+[target.'cfg(windows)'.dev-dependencies]
+tiny-skia = { version = "0.11", features = ["png-format"] }

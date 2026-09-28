@@ -1,0 +1,13 @@
+# Normalise les fins de ligne en LF dans le dépôt (cohérent Windows/macOS/Linux,
+# évite les conflits avec Prettier qui attend du LF par défaut).
+* text=auto eol=lf
+
+# Fichiers binaires : pas de conversion.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.icns binary
+*.woff binary
+*.woff2 binary

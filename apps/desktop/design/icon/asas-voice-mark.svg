@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <radialGradient id="mcore" gradientUnits="userSpaceOnUse" cx="131.07" cy="132.10" r="58.37" fx="112.64" fy="109.57" fr="1.02"><stop offset="0" stop-color="#fff3e4"/><stop offset="0.22" stop-color="#ffb088"/><stop offset="0.52" stop-color="#e07fc4"/><stop offset="0.78" stop-color="#9a66ff"/><stop offset="1" stop-color="#3f2ea6"/></radialGradient>
+    <linearGradient id="mrim" gradientUnits="userSpaceOnUse" x1="76.8" y1="76.8" x2="179.2" y2="179.2">
+      <stop offset="0" stop-color="#fff0e2" stop-opacity="0.42"/>
+      <stop offset="0.5" stop-color="#fff0e2" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#1a1030" stop-opacity="0.25"/>
+    </linearGradient>
+    <radialGradient id="mspec" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fffaf2" stop-opacity="0.7"/>
+      <stop offset="0.5" stop-color="#fff6ec" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#fff6ec" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="maura" gradientUnits="userSpaceOnUse" cx="128.0" cy="128.0" r="128.00">
+      <stop offset="0" stop-color="#ffa47a" stop-opacity="0.34"/>
+      <stop offset="0.32" stop-color="#d678dc" stop-opacity="0.18"/>
+      <stop offset="0.6" stop-color="#9664ff" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#9664ff" stop-opacity="0"/>
+    </radialGradient></defs>
+  <line x1="128.00" y1="48.64" x2="128.00" y2="39.33" stroke="#c4baff" stroke-opacity="0.540" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="136.30" y1="49.07" x2="136.83" y2="43.98" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="144.50" y1="50.37" x2="145.56" y2="45.37" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="152.52" y1="52.52" x2="154.11" y2="47.65" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="160.28" y1="55.50" x2="162.36" y2="50.82" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="167.68" y1="59.27" x2="170.24" y2="54.84" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="174.65" y1="63.80" x2="177.66" y2="59.65" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="181.10" y1="69.02" x2="184.53" y2="65.22" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="186.98" y1="74.90" x2="190.78" y2="71.47" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="192.20" y1="81.35" x2="196.35" y2="78.34" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="196.73" y1="88.32" x2="201.16" y2="85.76" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="200.50" y1="95.72" x2="205.18" y2="93.64" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="203.48" y1="103.48" x2="208.35" y2="101.89" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="205.63" y1="111.50" x2="210.63" y2="110.44" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="206.93" y1="119.70" x2="212.02" y2="119.17" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="207.36" y1="128.00" x2="216.67" y2="128.00" stroke="#c4baff" stroke-opacity="0.540" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="206.93" y1="136.30" x2="212.02" y2="136.83" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="205.63" y1="144.50" x2="210.63" y2="145.56" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="203.48" y1="152.52" x2="208.76" y2="154.24" stroke="#ffc49e" stroke-opacity="0.364" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="200.50" y1="160.28" x2="207.27" y2="163.29" stroke="#ffc49e" stroke-opacity="0.425" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="196.73" y1="167.68" x2="204.80" y2="172.34" stroke="#ffc49e" stroke-opacity="0.488" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="192.20" y1="174.65" x2="199.70" y2="180.09" stroke="#ffc49e" stroke-opacity="0.486" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="186.98" y1="181.10" x2="193.71" y2="187.16" stroke="#ffc49e" stroke-opacity="0.479" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="181.10" y1="186.98" x2="189.39" y2="196.18" stroke="#ffc49e" stroke-opacity="0.589" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="174.65" y1="192.20" x2="185.11" y2="206.60" stroke="#ffc49e" stroke-opacity="0.766" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="167.68" y1="196.73" x2="177.26" y2="213.32" stroke="#ffc49e" stroke-opacity="0.811" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="160.28" y1="200.50" x2="166.48" y2="214.44" stroke="#ffc49e" stroke-opacity="0.683" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="152.52" y1="203.48" x2="156.57" y2="215.92" stroke="#ffc49e" stroke-opacity="0.612" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="144.50" y1="205.63" x2="148.20" y2="223.02" stroke="#ffc49e" stroke-opacity="0.766" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="136.30" y1="206.93" x2="138.81" y2="230.84" stroke="#ffc49e" stroke-opacity="0.972" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="128.00" y1="207.36" x2="128.00" y2="234.89" stroke="#ffc49e" stroke-opacity="0.949" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="119.70" y1="206.93" x2="117.19" y2="230.84" stroke="#ffc49e" stroke-opacity="0.972" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="111.50" y1="205.63" x2="107.80" y2="223.02" stroke="#ffc49e" stroke-opacity="0.766" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="103.48" y1="203.48" x2="99.43" y2="215.92" stroke="#ffc49e" stroke-opacity="0.612" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="95.72" y1="200.50" x2="89.52" y2="214.44" stroke="#ffc49e" stroke-opacity="0.683" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="88.32" y1="196.73" x2="78.74" y2="213.32" stroke="#ffc49e" stroke-opacity="0.811" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="81.35" y1="192.20" x2="70.89" y2="206.60" stroke="#ffc49e" stroke-opacity="0.766" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="74.90" y1="186.98" x2="66.61" y2="196.18" stroke="#ffc49e" stroke-opacity="0.589" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="69.02" y1="181.10" x2="62.29" y2="187.16" stroke="#ffc49e" stroke-opacity="0.479" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="63.80" y1="174.65" x2="56.30" y2="180.09" stroke="#ffc49e" stroke-opacity="0.486" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="59.27" y1="167.68" x2="51.20" y2="172.34" stroke="#ffc49e" stroke-opacity="0.488" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="55.50" y1="160.28" x2="48.73" y2="163.29" stroke="#ffc49e" stroke-opacity="0.425" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="52.52" y1="152.52" x2="47.24" y2="154.24" stroke="#ffc49e" stroke-opacity="0.364" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="50.37" y1="144.50" x2="45.37" y2="145.56" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="49.07" y1="136.30" x2="43.98" y2="136.83" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="48.64" y1="128.00" x2="39.33" y2="128.00" stroke="#c4baff" stroke-opacity="0.540" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="49.07" y1="119.70" x2="43.98" y2="119.17" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="50.37" y1="111.50" x2="45.37" y2="110.44" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="52.52" y1="103.48" x2="47.65" y2="101.89" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="55.50" y1="95.72" x2="50.82" y2="93.64" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="59.27" y1="88.32" x2="54.84" y2="85.76" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="63.80" y1="81.35" x2="59.65" y2="78.34" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="69.02" y1="74.90" x2="65.22" y2="71.47" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="74.90" y1="69.02" x2="71.47" y2="65.22" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="81.35" y1="63.80" x2="78.34" y2="59.65" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="88.32" y1="59.27" x2="85.76" y2="54.84" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="95.72" y1="55.50" x2="93.64" y2="50.82" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="103.48" y1="52.52" x2="101.89" y2="47.65" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="111.50" y1="50.37" x2="110.44" y2="45.37" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <line x1="119.70" y1="49.07" x2="119.17" y2="43.98" stroke="#c4baff" stroke-opacity="0.340" stroke-width="2.97" stroke-linecap="round"/>
+  <path d="M179.15,126.33 Q179.24,128.00 179.23,129.68 Q179.21,131.36 179.09,133.03 Q178.97,134.71 178.74,136.38 Q178.51,138.05 178.17,139.70 Q177.82,141.35 177.36,142.97 Q176.90,144.60 176.33,146.19 Q175.75,147.78 175.06,149.32 Q174.36,150.86 173.56,152.35 Q172.75,153.84 171.84,155.26 Q170.93,156.68 169.91,158.03 Q168.89,159.38 167.78,160.65 Q166.67,161.92 165.48,163.10 Q164.28,164.28 163.01,165.38 Q161.74,166.48 160.41,167.49 Q159.07,168.50 157.68,169.42 Q156.29,170.34 154.85,171.17 Q153.40,172.00 151.92,172.75 Q150.44,173.50 148.91,174.16 Q147.39,174.82 145.84,175.40 Q144.28,175.97 142.70,176.46 Q141.12,176.95 139.51,177.35 Q137.90,177.75 136.26,178.06 Q134.63,178.37 132.98,178.58 Q131.33,178.79 129.66,178.89 Q128.00,179.00 126.33,179.00 Q124.66,179.00 122.99,178.89 Q121.32,178.77 119.65,178.54 Q117.99,178.31 116.35,177.97 Q114.70,177.62 113.09,177.16 Q111.47,176.70 109.89,176.12 Q108.31,175.54 106.77,174.85 Q105.24,174.16 103.75,173.36 Q102.27,172.57 100.84,171.67 Q99.42,170.77 98.06,169.78 Q96.70,168.79 95.41,167.72 Q94.11,166.64 92.90,165.48 Q91.68,164.32 90.53,163.09 Q89.39,161.86 88.33,160.56 Q87.27,159.26 86.29,157.89 Q85.31,156.52 84.42,155.10 Q83.53,153.67 82.74,152.19 Q81.94,150.71 81.25,149.18 Q80.55,147.65 79.96,146.08 Q79.36,144.51 78.88,142.90 Q78.40,141.29 78.03,139.65 Q77.66,138.01 77.40,136.35 Q77.15,134.69 77.01,133.02 Q76.88,131.35 76.86,129.68 Q76.84,128.00 76.94,126.33 Q77.03,124.66 77.24,123.00 Q77.45,121.34 77.76,119.71 Q78.08,118.07 78.49,116.46 Q78.91,114.85 79.42,113.27 Q79.94,111.68 80.54,110.14 Q81.14,108.59 81.83,107.08 Q82.52,105.57 83.30,104.11 Q84.07,102.64 84.93,101.21 Q85.78,99.79 86.72,98.42 Q87.65,97.04 88.67,95.72 Q89.68,94.40 90.78,93.14 Q91.88,91.88 93.05,90.68 Q94.23,89.49 95.48,88.37 Q96.74,87.26 98.07,86.22 Q99.40,85.19 100.80,84.26 Q102.20,83.32 103.68,82.49 Q105.15,81.66 106.68,80.94 Q108.21,80.21 109.79,79.61 Q111.37,79.01 112.99,78.52 Q114.61,78.04 116.27,77.68 Q117.92,77.32 119.59,77.08 Q121.26,76.84 122.95,76.72 Q124.63,76.61 126.32,76.60 Q128.00,76.60 129.68,76.71 Q131.35,76.82 133.02,77.03 Q134.68,77.25 136.33,77.57 Q137.97,77.88 139.59,78.30 Q141.21,78.71 142.80,79.22 Q144.39,79.73 145.94,80.33 Q147.50,80.93 149.01,81.63 Q150.53,82.32 152.00,83.10 Q153.47,83.89 154.89,84.76 Q156.31,85.63 157.67,86.59 Q159.03,87.55 160.33,88.60 Q161.63,89.65 162.86,90.78 Q164.08,91.92 165.23,93.13 Q166.38,94.34 167.44,95.63 Q168.51,96.92 169.48,98.28 Q170.45,99.63 171.33,101.05 Q172.21,102.47 173.00,103.95 Q173.78,105.42 174.47,106.95 Q175.15,108.47 175.74,110.03 Q176.33,111.59 176.82,113.19 Q177.31,114.79 177.70,116.41 Q178.09,118.04 178.38,119.68 Q178.67,121.33 178.87,122.99 Q179.06,124.65 179.15,126.33 Z" fill="url(#mcore)"/>
+  <path d="M179.15,126.33 Q179.24,128.00 179.23,129.68 Q179.21,131.36 179.09,133.03 Q178.97,134.71 178.74,136.38 Q178.51,138.05 178.17,139.70 Q177.82,141.35 177.36,142.97 Q176.90,144.60 176.33,146.19 Q175.75,147.78 175.06,149.32 Q174.36,150.86 173.56,152.35 Q172.75,153.84 171.84,155.26 Q170.93,156.68 169.91,158.03 Q168.89,159.38 167.78,160.65 Q166.67,161.92 165.48,163.10 Q164.28,164.28 163.01,165.38 Q161.74,166.48 160.41,167.49 Q159.07,168.50 157.68,169.42 Q156.29,170.34 154.85,171.17 Q153.40,172.00 151.92,172.75 Q150.44,173.50 148.91,174.16 Q147.39,174.82 145.84,175.40 Q144.28,175.97 142.70,176.46 Q141.12,176.95 139.51,177.35 Q137.90,177.75 136.26,178.06 Q134.63,178.37 132.98,178.58 Q131.33,178.79 129.66,178.89 Q128.00,179.00 126.33,179.00 Q124.66,179.00 122.99,178.89 Q121.32,178.77 119.65,178.54 Q117.99,178.31 116.35,177.97 Q114.70,177.62 113.09,177.16 Q111.47,176.70 109.89,176.12 Q108.31,175.54 106.77,174.85 Q105.24,174.16 103.75,173.36 Q102.27,172.57 100.84,171.67 Q99.42,170.77 98.06,169.78 Q96.70,168.79 95.41,167.72 Q94.11,166.64 92.90,165.48 Q91.68,164.32 90.53,163.09 Q89.39,161.86 88.33,160.56 Q87.27,159.26 86.29,157.89 Q85.31,156.52 84.42,155.10 Q83.53,153.67 82.74,152.19 Q81.94,150.71 81.25,149.18 Q80.55,147.65 79.96,146.08 Q79.36,144.51 78.88,142.90 Q78.40,141.29 78.03,139.65 Q77.66,138.01 77.40,136.35 Q77.15,134.69 77.01,133.02 Q76.88,131.35 76.86,129.68 Q76.84,128.00 76.94,126.33 Q77.03,124.66 77.24,123.00 Q77.45,121.34 77.76,119.71 Q78.08,118.07 78.49,116.46 Q78.91,114.85 79.42,113.27 Q79.94,111.68 80.54,110.14 Q81.14,108.59 81.83,107.08 Q82.52,105.57 83.30,104.11 Q84.07,102.64 84.93,101.21 Q85.78,99.79 86.72,98.42 Q87.65,97.04 88.67,95.72 Q89.68,94.40 90.78,93.14 Q91.88,91.88 93.05,90.68 Q94.23,89.49 95.48,88.37 Q96.74,87.26 98.07,86.22 Q99.40,85.19 100.80,84.26 Q102.20,83.32 103.68,82.49 Q105.15,81.66 106.68,80.94 Q108.21,80.21 109.79,79.61 Q111.37,79.01 112.99,78.52 Q114.61,78.04 116.27,77.68 Q117.92,77.32 119.59,77.08 Q121.26,76.84 122.95,76.72 Q124.63,76.61 126.32,76.60 Q128.00,76.60 129.68,76.71 Q131.35,76.82 133.02,77.03 Q134.68,77.25 136.33,77.57 Q137.97,77.88 139.59,78.30 Q141.21,78.71 142.80,79.22 Q144.39,79.73 145.94,80.33 Q147.50,80.93 149.01,81.63 Q150.53,82.32 152.00,83.10 Q153.47,83.89 154.89,84.76 Q156.31,85.63 157.67,86.59 Q159.03,87.55 160.33,88.60 Q161.63,89.65 162.86,90.78 Q164.08,91.92 165.23,93.13 Q166.38,94.34 167.44,95.63 Q168.51,96.92 169.48,98.28 Q170.45,99.63 171.33,101.05 Q172.21,102.47 173.00,103.95 Q173.78,105.42 174.47,106.95 Q175.15,108.47 175.74,110.03 Q176.33,111.59 176.82,113.19 Q177.31,114.79 177.70,116.41 Q178.09,118.04 178.38,119.68 Q178.67,121.33 178.87,122.99 Q179.06,124.65 179.15,126.33 Z" fill="none" stroke="url(#mrim)" stroke-width="1.54"/>
+  <ellipse cx="109.57" cy="105.47" rx="19.97" ry="12.80" transform="rotate(-28.6 109.57 105.47)" fill="url(#mspec)"/>
+</svg>

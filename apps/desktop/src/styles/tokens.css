@@ -1,0 +1,219 @@
+/*
+ * Asas Voice — tokens de design (source unique de vérité).
+ * Toute couleur, police, rayon, ombre ou mouvement de l'app DOIT dériver d'ici.
+ *
+ * Direction « instrument de verre » : la finition d'un logiciel de constructeur. Canvas
+ * encre (jamais de noir pur), matières en verre à peine teinté avec un liseré de lumière
+ * sur l'arête haute, filets 0,5 px, une seule famille typographique (Inter, tailles
+ * optiques) et des mouvements à ressort. La hardiesse est réservée à l'orbe ; tout le reste
+ * est discipliné. Deux accents, pris aux extrémités du dégradé de l'orbe :
+ *   - violet = la structure et l'encre : navigation, focus, sélection, texte livré ;
+ *   - pêche  = la voix : écoute en cours, spectre.
+ * Les statuts (ok / attention / erreur) ne servent qu'à dire un état réel.
+ */
+
+:root {
+  /* ---- Canvas ---- */
+  --bg0: #0b0a0f; /* fond de fenêtre */
+  --bg1: #111017; /* zone de contenu */
+  --bg-sidebar: #0d0c12;
+  --bg-field: rgba(255, 255, 255, 0.045); /* champs de saisie */
+  --bg-field-hover: rgba(255, 255, 255, 0.07);
+  --bg-hud: rgba(26, 24, 34, 0.78); /* toasts, barre d'outils défilée */
+
+  /* ---- Matières (verre à peine teinté) ---- */
+  --surface: rgba(255, 255, 255, 0.034); /* groupes, cartes */
+  --surface-2: rgba(255, 255, 255, 0.06); /* contrôles posés */
+  --surface-3: rgba(255, 255, 255, 0.09); /* survol */
+  --surface-4: rgba(255, 255, 255, 0.13); /* pression */
+  --edge: inset 0 0.5px 0 rgba(255, 255, 255, 0.07); /* liseré de lumière, arête haute */
+  --sep: rgba(255, 255, 255, 0.065); /* filets entre lignes */
+  --stroke: rgba(255, 255, 255, 0.09); /* contours 0,5 px */
+  --stroke-2: rgba(255, 255, 255, 0.14);
+
+  /* ---- Texte (contrastes ≥ 4.5:1 sur --bg1) ---- */
+  --txt: #f4f2f8;
+  --txt2: #a7a2b6;
+  --txt3: #7f7a92;
+  --txt-inverse: #ffffff;
+
+  /* ---- Accent structure & encre : violet ---- */
+  --accent: #a38fff;
+  --accent-strong: #8a6dff;
+  --accent-soft: rgba(163, 143, 255, 0.14);
+  --accent-softer: rgba(163, 143, 255, 0.08);
+  --accent-line: rgba(163, 143, 255, 0.45);
+  --accent-fill: linear-gradient(180deg, #957cff 0%, #7453f2 100%);
+  --ink: rgba(146, 106, 255, 0.28); /* surlignage « texte livré » (miroir de l'effet natif) */
+
+  /* ---- Accent voix : pêche ---- */
+  --live: #ffb48c;
+  --live-strong: #ff9a6c;
+  --live-soft: rgba(255, 180, 140, 0.13);
+  --live-line: rgba(255, 180, 140, 0.45);
+
+  /* ---- Statuts ---- */
+  --ok: #5fd3a6;
+  --ok-soft: rgba(95, 211, 166, 0.13);
+  --warn: #f2c27a;
+  --warn-soft: rgba(242, 194, 122, 0.12);
+  --warn-line: rgba(242, 194, 122, 0.34);
+  --err: #ff8b8b;
+  --err-soft: rgba(255, 139, 139, 0.12);
+  --err-line: rgba(255, 139, 139, 0.34);
+
+  /* ---- Dégradé spectral de l'orbe (chaud → froid) ---- */
+  --orb-1: #fff3e4;
+  --orb-2: #ffb088;
+  --orb-3: #e07fc4;
+  --orb-4: #9a66ff;
+  --orb-5: #3f2ea6;
+
+  /* ---- Tuiles d'icônes (en-têtes de groupes) ---- */
+  --tile-violet: linear-gradient(160deg, #a58cff, #6c4ce6);
+  --tile-peach: linear-gradient(160deg, #ffc09a, #f0845a);
+  --tile-indigo: linear-gradient(160deg, #8c9cff, #4b54d6);
+  --tile-rose: linear-gradient(160deg, #f29ad2, #c0569e);
+  --tile-graphite: linear-gradient(160deg, #8d889c, #55516a);
+  --tile-spectral: linear-gradient(150deg, #ffb088 0%, #e07fc4 45%, #7b56f0 100%);
+  --tile-mint: linear-gradient(160deg, #7fe0bc, #2f9e79);
+
+  /* ---- Typographie : Inter (tailles optiques), une seule famille ---- */
+  --font-ui: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "Cascadia Mono", "Cascadia Code", Consolas, ui-monospace, monospace;
+
+  --fs-caption: 0.6875rem; /* 11px — étiquettes discrètes */
+  --fs-footnote: 0.75rem; /* 12px — méta */
+  --fs-sub: 0.8125rem; /* 13px — secondaire */
+  --fs-body: 0.875rem; /* 14px — corps */
+  --fs-callout: 0.9375rem; /* 15px — texte dicté */
+  --fs-headline: 1rem; /* 16px — titres de carte */
+  --fs-title: 1.75rem; /* 28px — titres d'écran */
+  --fs-display: 2.125rem; /* 34px — statut de dictée */
+
+  --fw-regular: 420;
+  --fw-medium: 520;
+  --fw-semibold: 610;
+
+  --track-tight: -0.022em; /* grands titres */
+  --track-snug: -0.011em; /* titres de carte */
+
+  /* ---- Rayons (concentriques : chaque niveau imbriqué est plus petit) ---- */
+  --r-xs: 5px;
+  --r-sm: 7px;
+  --r-control: 8px;
+  --r-group: 12px;
+  --r-card: 14px;
+  --r-window: 12px;
+  --r-pill: 999px;
+
+  /* ---- Espacement (grille de 4) ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+  --sp-8: 40px;
+  --sp-9: 56px;
+
+  /* ---- Mise en page ---- */
+  --sidebar-w: 216px;
+  --toolbar-h: 48px;
+
+  /* ---- Profondeur ---- */
+  --shadow-control: 0 1px 2px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(0, 0, 0, 0.2);
+  --shadow-thumb: 0 2px 6px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(0, 0, 0, 0.12);
+  --shadow-pop: 0 24px 60px -18px rgba(0, 0, 0, 0.75), 0 0 0 0.5px var(--stroke-2);
+  --ring: 0 0 0 3px rgba(163, 143, 255, 0.28), 0 0 0 1px var(--accent-line);
+
+  /* ---- Mouvement : ressorts et sorties douces, rien ne « claque » ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  /* Ressort amorti (léger dépassement) — indicateurs, curseurs, bascules. */
+  --spring: linear(
+    0,
+    0.009,
+    0.037 1.9%,
+    0.146 4%,
+    0.563 10.7%,
+    0.8 15%,
+    0.943 19.4%,
+    1.033 24.2%,
+    1.066 28.1%,
+    1.072 31.9%,
+    1.058 36.7%,
+    1.019 45.8%,
+    0.998 54.7%,
+    0.993 63.8%,
+    1
+  );
+  /* Ressort doux (sans dépassement visible) — apparitions, panneaux. */
+  --spring-soft: linear(
+    0,
+    0.012,
+    0.048 3.2%,
+    0.191 7%,
+    0.563 15.5%,
+    0.77 21.5%,
+    0.888 27.3%,
+    0.957 34.2%,
+    0.992 43.1%,
+    1.004 55%,
+    1.003 70%,
+    1
+  );
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+  --dur-4: 480ms;
+  --dur-5: 640ms;
+
+  color-scheme: dark;
+}
+
+/* ---- Thème clair : même architecture, matières claires ---- */
+[data-theme="light"] {
+  color-scheme: light;
+  --bg0: #eceaf2;
+  --bg1: #f7f6fa;
+  --bg-sidebar: #efedf4;
+  --bg-field: rgba(28, 22, 52, 0.045);
+  --bg-field-hover: rgba(28, 22, 52, 0.07);
+  --bg-hud: rgba(255, 255, 255, 0.82);
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-2: rgba(255, 255, 255, 0.95);
+  --surface-3: rgba(28, 22, 52, 0.055);
+  --surface-4: rgba(28, 22, 52, 0.09);
+  --edge: inset 0 0.5px 0 rgba(255, 255, 255, 0.9);
+  --sep: rgba(28, 22, 52, 0.08);
+  --stroke: rgba(28, 22, 52, 0.1);
+  --stroke-2: rgba(28, 22, 52, 0.16);
+  --txt: #19152b;
+  --txt2: #57526b;
+  --txt3: #6d6883;
+  --accent: #6a4fe6;
+  --accent-strong: #5a3fd8;
+  --accent-soft: rgba(106, 79, 230, 0.11);
+  --accent-softer: rgba(106, 79, 230, 0.06);
+  --accent-line: rgba(106, 79, 230, 0.4);
+  --accent-fill: linear-gradient(180deg, #7f62f5 0%, #5f40e0 100%);
+  --ink: rgba(124, 88, 255, 0.2);
+  --live: #e9794a;
+  --live-strong: #d8622f;
+  --live-soft: rgba(233, 121, 74, 0.12);
+  --live-line: rgba(216, 98, 47, 0.42);
+  --ok: #13805b;
+  --ok-soft: rgba(19, 128, 91, 0.1);
+  --warn: #8f5608;
+  --warn-soft: rgba(196, 132, 30, 0.1);
+  --warn-line: rgba(168, 105, 12, 0.3);
+  --err: #c5343b;
+  --err-soft: rgba(197, 52, 59, 0.08);
+  --err-line: rgba(197, 52, 59, 0.28);
+  --shadow-control: 0 1px 2px rgba(40, 24, 90, 0.12), 0 0 0 0.5px rgba(28, 22, 52, 0.12);
+  --shadow-thumb: 0 2px 6px rgba(40, 24, 90, 0.18), 0 0 0 0.5px rgba(28, 22, 52, 0.1);
+  --shadow-pop: 0 24px 60px -20px rgba(40, 24, 90, 0.35), 0 0 0 0.5px var(--stroke-2);
+  --ring: 0 0 0 3px rgba(106, 79, 230, 0.22), 0 0 0 1px var(--accent-line);
+}

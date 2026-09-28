@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Builds
+dist/
+build/
+**/src-tauri/target/
+**/src-tauri/gen/
+**/target/
+
+# Sidecar backend compilé (artefact de build, ~60 Mo) — régénéré par scripts/build-sidecar.mjs
+apps/desktop/src-tauri/binaries/
+
+# Env / secrets — NE JAMAIS committer (la clé Voxtral vit ici)
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Fixtures audio de dev à la racine (copie versionnée sous apps/backend/tests si besoin)
+/test.wav
+
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Rendus intermédiaires des icônes (régénérés par design/icon/render.mjs)
+apps/desktop/design/icon/out/

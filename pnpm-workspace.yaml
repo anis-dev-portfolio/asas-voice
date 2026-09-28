@@ -1,0 +1,11 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+allowBuilds:
+  esbuild: true
+
+# pnpm 10+ bloque par défaut les scripts d'install des dépendances.
+# esbuild (utilisé par Vite et tsup) a besoin de son script post-install.
+onlyBuiltDependencies:
+  - esbuild

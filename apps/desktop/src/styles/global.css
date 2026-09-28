@@ -1,0 +1,118 @@
+/*
+ * Base globale de la fenêtre principale.
+ * La fenêtre est sans décorations + transparente : .window porte le fond arrondi ;
+ * l'ombre douce est déléguée à l'OS (tauri.conf.json "shadow": true).
+ */
+@import "./tokens.css";
+@import "./fonts.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: transparent;
+  color: var(--txt);
+  font-family: var(--font-ui);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  font-optical-sizing: auto;
+  line-height: 1.45;
+  letter-spacing: -0.003em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Pas de sélection du chrome ; réactivée sur les zones de texte. */
+  user-select: none;
+  cursor: default;
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+}
+
+/* ---- Typo : casse de phrase, graisses variables mesurées ---- */
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-weight: var(--fw-semibold);
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Texte sélectionnable (résultats, historique, champs) ---- */
+.selectable {
+  user-select: text;
+  cursor: text;
+}
+
+::selection {
+  background: var(--ink);
+  color: inherit;
+}
+
+/* ---- Focus clavier visible (plancher d'accessibilité) ---- */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+/* ---- Masqué visuellement, lu par les lecteurs d'écran ---- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Barres de défilement fines, discrètes ---- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--stroke-2) transparent;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* ---- Fenêtre cachée (tray) ou réduite : plus AUCUNE animation ne tourne ---- */
+[data-visible="false"] *,
+[data-visible="false"] *::before,
+[data-visible="false"] *::after {
+  animation-play-state: paused !important;
+}
+
+/* ---- Accessibilité : coupe tout mouvement décoratif ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

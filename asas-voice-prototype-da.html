@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Asas Voice — prototype DA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg0: #0a0910;
+        --bg1: #100e18;
+        --bg2: #15121f;
+        --panel: rgba(255, 255, 255, 0.035);
+        --panel2: rgba(255, 255, 255, 0.055);
+        --hair: rgba(255, 255, 255, 0.09);
+        --hair2: rgba(255, 255, 255, 0.14);
+        --txt: #f2f0f7;
+        --txt2: #9d99ab;
+        --txt3: #67637a;
+        --accent: #8b7cff;
+        --accent-soft: rgba(139, 124, 255, 0.16);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: "Hanken Grotesk", system-ui, sans-serif;
+        background: radial-gradient(120% 120% at 50% -10%, #16121f 0%, var(--bg0) 60%);
+        color: var(--txt);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+      .stage {
+        width: 100%;
+        max-width: 880px;
+      }
+      .label-top {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--txt3);
+        margin-bottom: 14px;
+        text-align: center;
+      }
+
+      /* faux desktop window */
+      .win {
+        border: 0.5px solid var(--hair);
+        border-radius: 18px;
+        overflow: hidden;
+        background: linear-gradient(180deg, var(--bg1) 0%, var(--bg0) 100%);
+        box-shadow:
+          0 40px 120px -40px rgba(0, 0, 0, 0.9),
+          0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+      }
+      .titlebar {
+        height: 44px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 16px;
+        border-bottom: 0.5px solid var(--hair);
+        background: rgba(255, 255, 255, 0.015);
+      }
+      .dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.14);
+      }
+      .wordmark {
+        font-family: "Fraunces", serif;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 0.01em;
+        margin-left: 6px;
+      }
+      .wordmark span {
+        color: var(--accent);
+      }
+      .tb-right {
+        margin-left: auto;
+        font-size: 12.5px;
+        color: var(--txt3);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .pulse {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #5dcaa5;
+        box-shadow: 0 0 10px #5dcaa5;
+      }
+
+      .body {
+        display: grid;
+        grid-template-columns: 188px 1fr;
+        min-height: 430px;
+      }
+      .rail {
+        border-right: 0.5px solid var(--hair);
+        padding: 18px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        padding: 10px 12px;
+        border-radius: 11px;
+        color: var(--txt2);
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.18s;
+      }
+      .nav svg {
+        width: 17px;
+        height: 17px;
+        opacity: 0.8;
+      }
+      .nav:hover {
+        background: var(--panel);
+        color: var(--txt);
+      }
+      .nav.on {
+        background: var(--accent-soft);
+        color: #cfc6ff;
+      }
+      .nav.on svg {
+        opacity: 1;
+      }
+      .rail-foot {
+        margin-top: auto;
+        padding: 10px 12px;
+        border-radius: 11px;
+        background: var(--panel);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .ava {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff7a66, #b06bff);
+        flex: none;
+      }
+      .rail-foot div {
+        font-size: 12.5px;
+        line-height: 1.3;
+      }
+      .rail-foot b {
+        font-weight: 500;
+        color: var(--txt);
+      }
+      .rail-foot small {
+        color: var(--txt3);
+      }
+
+      .main {
+        position: relative;
+        padding: 26px 30px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .stage-orb {
+        position: relative;
+        width: 240px;
+        height: 240px;
+        margin-top: 6px;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .status {
+        margin-top: 6px;
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        height: 22px;
+      }
+      .status.idle {
+        color: var(--txt2);
+      }
+      .status.live {
+        color: #ffb98e;
+      }
+      .hint {
+        margin-top: 6px;
+        font-size: 13px;
+        color: var(--txt3);
+      }
+      .kbd {
+        font-family: "Hanken Grotesk";
+        font-size: 12px;
+        color: var(--txt2);
+        border: 0.5px solid var(--hair2);
+        border-radius: 6px;
+        padding: 2px 7px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .script {
+        margin-top: 22px;
+        width: 100%;
+        max-width: 430px;
+        border: 0.5px solid var(--hair);
+        border-radius: 14px;
+        background: var(--panel);
+        padding: 14px 16px;
+        min-height: 64px;
+        transition: 0.2s;
+      }
+      .script .meta {
+        font-size: 11.5px;
+        color: var(--txt3);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .script p {
+        font-size: 14.5px;
+        line-height: 1.55;
+        color: var(--txt);
+      }
+      .caret {
+        display: inline-block;
+        width: 2px;
+        height: 16px;
+        background: var(--accent);
+        margin-left: 2px;
+        vertical-align: -3px;
+        animation: blink 1s steps(1) infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .controls {
+        margin-top: 22px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn {
+        font-family: inherit;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--txt);
+        cursor: pointer;
+        border: 0.5px solid var(--hair2);
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 10px;
+        padding: 9px 15px;
+        transition: 0.16s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn:hover {
+        background: var(--panel2);
+        border-color: var(--accent);
+      }
+      .btn.primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #0c0913;
+        font-weight: 600;
+      }
+      .btn.primary:hover {
+        filter: brightness(1.08);
+      }
+      .btn svg {
+        width: 15px;
+        height: 15px;
+      }
+
+      /* floating overlay mock */
+      .overlay-note {
+        margin-top: 26px;
+        text-align: center;
+      }
+      .overlay-note .label-top {
+        margin-bottom: 12px;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 13px;
+        padding: 9px 9px 9px 16px;
+        border: 0.5px solid var(--hair2);
+        border-radius: 999px;
+        background: rgba(20, 17, 30, 0.85);
+        box-shadow: 0 16px 50px -16px rgba(0, 0, 0, 0.8);
+      }
+      .pill .lbl {
+        font-size: 13px;
+        color: var(--txt2);
+        font-weight: 500;
+      }
+      .pill canvas {
+        width: 34px;
+        height: 34px;
+      }
+      .cap {
+        font-size: 12px;
+        color: var(--txt3);
+        margin-top: 12px;
+        line-height: 1.6;
+        max-width: 460px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media (max-width: 680px) {
+        .body {
+          grid-template-columns: 1fr;
+        }
+        .rail {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="label-top">Asas Voice · prototype de direction artistique</div>
+
+      <div class="win">
+        <div class="titlebar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="wordmark">Vox<span>a</span></span>
+          <span class="tb-right"><span class="pulse"></span> connecté</span>
+        </div>
+        <div class="body">
+          <nav class="rail">
+            <div class="nav on">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <path
+                  d="M12 3v10m0 0a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v4a3 3 0 0 0 3 3Zm0 0v5m-4 0h8"
+                />
+              </svg>
+              Dictée
+            </div>
+            <div class="nav">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <path d="M3 12a9 9 0 1 0 3-6.7L3 8m0-5v5h5" />
+                <path d="M12 8v4l3 2" />
+              </svg>
+              Historique
+            </div>
+            <div class="nav">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+              Modèles
+            </div>
+            <div class="nav">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.3 1a7 7 0 0 0-1.7-1l-.4-2.6h-4l-.4 2.6a7 7 0 0 0-1.7 1l-2.3-1-2 3.4L4.1 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 1.7 1l.4 2.6h4l.4-2.6a7 7 0 0 0 1.7-1l2.3 1 2-3.4-2-1.5a7 7 0 0 0 .1-1Z"
+                />
+              </svg>
+              Réglages
+            </div>
+            <div class="rail-foot">
+              <span class="ava"></span>
+              <div><b>Anis</b><br /><small>Pro · illimité</small></div>
+            </div>
+          </nav>
+
+          <section class="main">
+            <div class="stage-orb"><canvas id="orb"></canvas></div>
+            <div class="status idle" id="status">En veille</div>
+            <div class="hint">
+              Maintenez <span class="kbd">Ctrl</span> <span class="kbd">Espace</span> pour dicter
+            </div>
+
+            <div class="script" id="script">
+              <div class="meta">Dernière dictée</div>
+              <p id="scriptText">Bonjour, ceci est un test de transcription pour Asas Voice.</p>
+            </div>
+
+            <div class="controls">
+              <button class="btn primary" id="talkBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Zm-7 8a7 7 0 0 0 14 0M12 18v3"
+                  />
+                </svg>
+                Simuler la voix
+              </button>
+              <button class="btn" id="micBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path
+                    d="M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Zm-7 8a7 7 0 0 0 14 0M12 18v3"
+                  />
+                </svg>
+                Utiliser mon micro
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="overlay-note">
+        <div class="label-top">
+          L'orbe flottant — toujours visible, par-dessus toutes vos fenêtres
+        </div>
+        <div class="pill">
+          <canvas id="orbMini"></canvas>
+          <span class="lbl" id="pillLbl">Asas Voice écoute…</span>
+        </div>
+        <p class="cap">
+          Une fenêtre Tauri transparente, sans bordure, always-on-top et cliquable-au-travers.
+          Discrète en veille, elle s'illumine et ondule au rythme de votre voix quand l'écoute est
+          active.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        function makeOrb(canvas, opts) {
+          opts = opts || {};
+          var ctx = canvas.getContext("2d");
+          var dpr = Math.min(window.devicePixelRatio || 1, 2);
+          function size() {
+            var r = canvas.getBoundingClientRect();
+            canvas.width = Math.max(2, r.width * dpr);
+            canvas.height = Math.max(2, r.height * dpr);
+          }
+          size();
+          window.addEventListener("resize", size);
+
+          var amp = 0,
+            target = 0,
+            t = 0;
+          var stops = [
+            { p: 0.0, c: [255, 232, 200] },
+            { p: 0.35, c: [255, 150, 110] },
+            { p: 0.7, c: [176, 107, 255] },
+            { p: 1.0, c: [120, 90, 220] },
+          ];
+          function lerp(a, b, k) {
+            return a + (b - a) * k;
+          }
+
+          function draw() {
+            t += 0.016;
+            amp += (target - amp) * 0.12;
+            var w = canvas.width,
+              h = canvas.height,
+              cx = w / 2,
+              cy = h / 2;
+            ctx.clearRect(0, 0, w, h);
+            var base = Math.min(w, h) * 0.2;
+            var breathe = Math.sin(t * 1.1) * 0.5 + 0.5;
+            var R = base * (1 + 0.06 * breathe + amp * 0.55);
+
+            // aura
+            ctx.globalCompositeOperation = "lighter";
+            for (var i = 4; i >= 1; i--) {
+              var rr = R * (1 + i * 0.55);
+              var a = (0.05 + amp * 0.1) / i;
+              var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, rr);
+              g.addColorStop(0, "rgba(255,150,110," + a + ")");
+              g.addColorStop(0.5, "rgba(176,107,255," + a * 0.7 + ")");
+              g.addColorStop(1, "rgba(176,107,255,0)");
+              ctx.fillStyle = g;
+              ctx.beginPath();
+              ctx.arc(cx, cy, rr, 0, 7);
+              ctx.fill();
+            }
+
+            // morphing core
+            ctx.globalCompositeOperation = "source-over";
+            var core = ctx.createRadialGradient(cx, cy - R * 0.18, R * 0.05, cx, cy, R * 1.15);
+            stops.forEach(function (s) {
+              core.addColorStop(s.p, "rgb(" + s.c[0] + "," + s.c[1] + "," + s.c[2] + ")");
+            });
+            ctx.fillStyle = core;
+            ctx.beginPath();
+            var pts = 72;
+            for (var k = 0; k <= pts; k++) {
+              var ang = (k / pts) * Math.PI * 2;
+              var wob =
+                1 +
+                0.05 * Math.sin(ang * 3 + t * 1.7) +
+                0.04 * Math.sin(ang * 5 - t * 1.2) +
+                amp * 0.1 * Math.sin(ang * 2 + t * 3);
+              var x = cx + Math.cos(ang) * R * wob,
+                y = cy + Math.sin(ang) * R * wob;
+              k === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+            ctx.fill();
+
+            // inner warm highlight
+            ctx.globalCompositeOperation = "lighter";
+            var hot = ctx.createRadialGradient(cx, cy - R * 0.25, 0, cx, cy - R * 0.25, R * 0.9);
+            hot.addColorStop(0, "rgba(255,240,215," + (0.6 + amp * 0.3) + ")");
+            hot.addColorStop(1, "rgba(255,240,215,0)");
+            ctx.fillStyle = hot;
+            ctx.beginPath();
+            ctx.arc(cx, cy - R * 0.18, R * 0.9, 0, 7);
+            ctx.fill();
+            ctx.globalCompositeOperation = "source-over";
+
+            requestAnimationFrame(draw);
+          }
+          requestAnimationFrame(draw);
+          return {
+            set: function (v) {
+              target = Math.max(0, Math.min(1.4, v));
+            },
+            get: function () {
+              return amp;
+            },
+          };
+        }
+
+        var orb = makeOrb(document.getElementById("orb"));
+        var mini = makeOrb(document.getElementById("orbMini"));
+
+        var statusEl = document.getElementById("status");
+        var pillLbl = document.getElementById("pillLbl");
+        var simTimer = null,
+          micStream = null,
+          analyser = null,
+          micRAF = null;
+
+        function setLive(on) {
+          statusEl.textContent = on ? "À l\u2019écoute…" : "En veille";
+          statusEl.className = "status " + (on ? "live" : "idle");
+          pillLbl.textContent = on ? "Asas Voice écoute…" : "Asas Voice · prêt";
+        }
+
+        // simulated voice
+        document.getElementById("talkBtn").addEventListener("click", function () {
+          if (simTimer) {
+            clearInterval(simTimer);
+            simTimer = null;
+            orb.set(0);
+            mini.set(0);
+            setLive(false);
+            this.classList.remove("primary");
+            this.style.opacity = 1;
+            return;
+          }
+          setLive(true);
+          var st = 0;
+          simTimer = setInterval(function () {
+            st += 0.15;
+            var env = Math.sin(st * 2.1) * 0.5 + 0.5;
+            var v = env * (0.4 + Math.random() * 0.6) + Math.random() * 0.15;
+            orb.set(v);
+            mini.set(v);
+          }, 60);
+        });
+
+        // real mic
+        document.getElementById("micBtn").addEventListener("click", function () {
+          var btn = this;
+          if (micStream) {
+            micStream.getTracks().forEach(function (t) {
+              t.stop();
+            });
+            micStream = null;
+            cancelAnimationFrame(micRAF);
+            orb.set(0);
+            mini.set(0);
+            setLive(false);
+            btn.textContent = "Utiliser mon micro";
+            return;
+          }
+          navigator.mediaDevices
+            .getUserMedia({ audio: true })
+            .then(function (stream) {
+              micStream = stream;
+              setLive(true);
+              btn.innerHTML = "Couper le micro";
+              var ac = new (window.AudioContext || window.webkitAudioContext)();
+              var src = ac.createMediaStreamSource(stream);
+              analyser = ac.createAnalyser();
+              analyser.fftSize = 512;
+              src.connect(analyser);
+              var data = new Uint8Array(analyser.fftSize);
+              function loop() {
+                analyser.getByteTimeDomainData(data);
+                var sum = 0;
+                for (var i = 0; i < data.length; i++) {
+                  var d = (data[i] - 128) / 128;
+                  sum += d * d;
+                }
+                var rms = Math.sqrt(sum / data.length);
+                var v = Math.min(1.3, rms * 6);
+                orb.set(v);
+                mini.set(v);
+                micRAF = requestAnimationFrame(loop);
+              }
+              loop();
+            })
+            .catch(function () {
+              btn.textContent = "Micro indisponible ici";
+              setTimeout(function () {
+                btn.textContent = "Utiliser mon micro";
+              }, 1800);
+            });
+        });
+
+        // gentle idle shimmer on the mini pill
+        setLive(false);
+      })();
+    </script>
+  </body>
+</html>
